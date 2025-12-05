@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Island+Moments&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+
+.popup{
+    font-family: 'Zalando Sans Expanded', cursive;
+    /* size */
+    width: 28vw;
+    max-width: 520px;
+    min-width: 280px;
+    height: auto;
+    padding: 1.25rem 1.5rem;
+
+    /* center on screen (positioning handled by wrapper) */
+    position: relative;
+
+    /* glassmorphism */
+    background: rgba(255,255,255,0.10);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    backdrop-filter: blur(8px) saturate(120%);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px rgba(16,18,18,0.08);
+    border-radius: 14px;
+    color: #fff;
+
+    /* animation */
+    --popup-duration: 320ms;
+    opacity: 0;
+    transform: translateY(-8px) scale(0.99);
+    transition: opacity var(--popup-duration) ease, transform var(--popup-duration) ease;
+}
+
+/* open/closing states */
+.popup.open{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.popup.closing{
+    opacity: 0;
+    transform: translateY(-8px) scale(0.99);
+}
+
+/* make sure popup content doesn't overflow on small screens */
+@media (max-width: 480px){
+    .popup{
+        width: 90vw;
+        padding: 1rem;
+        border-radius: 12px;
+    }
+}
+
+.popup-wrapper{
+    /* overlay covers screen and is responsible for centering */
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8,10,12,0);
+    z-index: 2000; /* above navbar */
+    transition: background var(--popup-duration) ease, opacity var(--popup-duration) ease;
+    opacity: 0;
+}
+
+.popup-wrapper.open{
+    background: rgba(8,10,12,0.45);
+    opacity: 1;
+}
+
+.popup-wrapper.closing{
+    background: rgba(8,10,12,0);
+    opacity: 0;
+}
+
+.popup-close{
+    position: absolute;
+    right: 0.6rem;
+    top: 0.5rem;
+    background: transparent;
+    color: inherit;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.popup-content h3{
+    margin: 0 0 0.5rem 0;
+}
+
+.popup-content p{
+    margin: 0;
+    opacity: 0.9;
+}
