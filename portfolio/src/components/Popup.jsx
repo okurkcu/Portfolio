@@ -46,6 +46,8 @@ const Popup = ({ onClose }) => {
             <div className='popup-content'>
                 <h3>Contact Me</h3>
                 <p>Thanks for your interest! Drop a message and I'll get back to you.</p>
+                <p>ozank2001@gmail.com</p>
+                <p>+90 545 275 25 02</p>
             </div>
         </div>
     </div>
