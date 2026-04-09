@@ -2,6 +2,13 @@ import React from 'react'
 import NavLogo from '../../public/OK-Logo.png'
 
 const Navbar = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className="sticky top-0 z-50 flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm border-b border-white/10 shadow-sm shadow-black/10">
@@ -15,16 +22,16 @@ const Navbar = () => {
 
         {/* Right side */}
         <div className="flex items-center gap-[1.5vw]">
-          <button className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
+          <button onClick={() => scrollToSection('about')} className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
             About
           </button>
-          <button className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
+          <button onClick={() => scrollToSection('experience')} className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
             Experience
           </button>
-          <button className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
+          <button onClick={() => scrollToSection('projects')} className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
             Projects
           </button>
-          <button className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
+          <button onClick={() => scrollToSection('contact')} className="text-gray-500 font-[Inter] font-semibold text-sm tracking-wider bg-transparent border-none hover:text-white transition duration-200 cursor-pointer">
             Contact
           </button>
         </div>

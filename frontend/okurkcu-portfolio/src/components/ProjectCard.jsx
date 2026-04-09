@@ -18,7 +18,7 @@ const ProjectCard = ({ tag, name, exp, tech, link, color }) => {
   return (
     <div className='relative bg-[#0E1218] border border-gray-800 rounded-xl w-80 h-85 p-3 hover:-translate-y-5 cursor-pointer duration-200'>
     <div className='relative z-10'>
-        <div className='border-violet-600 rounded-md p-1 w-fit m-3' style={{ backgroundColor: bgRandomColor }}>
+        <div className='rounded-md p-1 w-fit m-3' style={{ backgroundColor: bgRandomColor }}>
             <h3 className='text-[10px] font-medium' style={{ color: randomColor }}>{tag}</h3>
         </div>
         <h1 className='m-3 text-xl font-medium font-[Syne] text-gray-200'>{name}</h1>

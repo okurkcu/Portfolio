@@ -2,13 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import LinkButton from './LinkButton'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 import githubLogo from '../../public/github.png'
 import linkedinLogo from '../../public/linkedin.svg'
 import mailLogo from '../../public/mail.png'
 
 const Hero = () => {
+  const [ref, isVisible] = useScrollAnimation(0.1);
+
   return (
-    <div>
+    <div ref={ref} className={`scroll-animation ${isVisible ? 'animate' : ''}`}>
       <div className="flex justify-center items-center mt-12 gap-1.5  hover:cursor-default">
         <FontAwesomeIcon icon={faCircle} className="text-green-500 text-[8px] animate-pulse" />
         <h3 className='text-green-600 font-[Inter] text-xs font-thin'>Software Engineer - Full Stack & Data Science</h3>

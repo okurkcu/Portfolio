@@ -1,9 +1,12 @@
 import React from 'react'
 import TimelineComp from './TimelineComp'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 
 const Experience = () => {
+  const [ref, isVisible] = useScrollAnimation(0.1);
+
   return (
-    <div className='flex flex-col justify-between pl-30 pr-30'>
+    <div id="experience" ref={ref} className={`flex flex-col justify-between pl-30 pr-30 scroll-animation ${isVisible ? 'animate' : ''}`}>
         <div className='flex flex-col justify-start items-start'>
             <h3 className='text-violet-500 text-md font-semibold border-b border-b-violet-500 drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]'>
               Experience

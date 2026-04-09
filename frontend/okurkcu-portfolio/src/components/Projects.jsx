@@ -1,7 +1,9 @@
 import React from 'react'
 import ProjectCard from './ProjectCard'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 
 const Projects = () => {
+  const [ref, isVisible] = useScrollAnimation(0.1);
   const colors = ['#379845', '#F37F66', '#BF9AE7', '#DE924F', '#4E91DC']
 
   const randomNum = () => {
@@ -61,7 +63,7 @@ const Projects = () => {
     },
   ]
   return (
-     <div className='flex flex-col justify-between mt-8 p-20 gap-10'>
+     <div id="projects" ref={ref} className={`flex flex-col justify-between mt-8 p-20 gap-10 scroll-animation ${isVisible ? 'animate' : ''}`}>
         <div className='flex flex-col justify-start items-start w-4/7'>
             <h3 className='text-violet-500 text-md font-semibold border-b border-b-violet-500 drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]'>
               Projects

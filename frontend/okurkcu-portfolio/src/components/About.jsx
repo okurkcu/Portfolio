@@ -1,6 +1,7 @@
 import Tooltip from '@mui/material/Tooltip'
 import React from 'react'
 import StackIcon from './StackIcon';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import JavascriptIcon from '../../public/JavaScript.png'
 import ReactIcon from '../../public/React.png'
 import NextJSIcon from '../../public/Nextjs.png'
@@ -19,11 +20,12 @@ import GitIcon from '../../public/Git.png'
 import FigmaIcon from '../../public/Figma.png'
 
 const About = () => {
+    const [ref, isVisible] = useScrollAnimation(0.1);
 
     const uniText = 'Information Systems and Technologies (CTIS) at Bilkent University is an interdisciplinary program combining software development, data, and business-oriented problem solving.';
 
   return (
-    <div className='flex justify-between mt-12 p-30 gap-20'>
+    <div id="about" ref={ref} className={`flex justify-between mt-12 p-30 gap-20 scroll-animation ${isVisible ? 'animate' : ''}`}>
         <div className='flex flex-col justify-start items-start w-4/7'>
             <h3 className='text-violet-500 text-md font-semibold border-b border-b-violet-500 drop-shadow-[0_0_8px_rgba(139,92,246,0.6)]'>
               About
