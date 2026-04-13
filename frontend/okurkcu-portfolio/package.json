@@ -1,9 +1,9 @@
 {
   "name": "okurkcu-portfolio",
+  "homepage": "https://okurkcu.github.io/okurkcu-portfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://okurkcu.github.io/okurkcu-portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
